@@ -25,6 +25,9 @@ spec:
   strategy:
     {{- toYaml . | nindent 4 }}
   {{- end }}
+  {{- if or (kindIs "float64" .Values.cainjector.revisionHistoryLimit) (kindIs "int64" .Values.cainjector.revisionHistoryLimit) }}
+  revisionHistoryLimit: {{ .Values.cainjector.revisionHistoryLimit | int64 }}
+  {{- end }}
   template:
     metadata:
       labels:

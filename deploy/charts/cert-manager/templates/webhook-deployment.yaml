@@ -24,6 +24,9 @@ spec:
   strategy:
     {{- toYaml . | nindent 4 }}
   {{- end }}
+  {{- if or (kindIs "float64" .Values.webhook.revisionHistoryLimit) (kindIs "int64" .Values.webhook.revisionHistoryLimit) }}
+  revisionHistoryLimit: {{ .Values.webhook.revisionHistoryLimit | int64 }}
+  {{- end }}
   template:
     metadata:
       labels:

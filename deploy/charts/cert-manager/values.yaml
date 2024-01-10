@@ -54,6 +54,8 @@ installCRDs: false
 
 replicaCount: 1
 
+revisionHistoryLimit:
+
 strategy: {}
   # type: RollingUpdate
   # rollingUpdate:
@@ -311,6 +313,8 @@ enableServiceLinks: false
 webhook:
   replicaCount: 1
 
+  revisionHistoryLimit:
+
   # Seconds the API server should wait for the webhook to respond before treating the call as a failure.
   # Value must be between 1 and 30 seconds. See:
   # https://kubernetes.io/docs/reference/kubernetes-api/extend-resources/validating-webhook-configuration-v1/
@@ -532,6 +536,8 @@ webhook:
 cainjector:
   enabled: true
   replicaCount: 1
+
+  revisionHistoryLimit:
 
   # Used to configure options for the cainjector pod.
   # This allows setting options that'd usually be provided via flags.

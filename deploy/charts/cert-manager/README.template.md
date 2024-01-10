@@ -89,6 +89,7 @@ The following table lists the configurable parameters of the cert-manager chart 
 | `image.tag` | Image tag | `{{RELEASE_VERSION}}` |
 | `image.pullPolicy` | Image pull policy | `IfNotPresent` |
 | `replicaCount`  | Number of cert-manager replicas  | `1` |
+| `revisionHistoryLimit` | Number of old `ReplicaSets` to retain to allow rollback of the `Deployment` |  |
 | `clusterResourceNamespace` | Override the namespace used to store DNS provider credentials etc. for ClusterIssuer resources | Same namespace as cert-manager pod |
 | `featureGates` | Set of comma-separated key=value pairs that describe feature gates on the controller. Some feature gates may also have to be enabled on other components, and can be set supplying the `feature-gate` flag to `<component>.extraArgs` | `` |
 | `extraArgs` | Optional flags for cert-manager | `[]` |
@@ -145,6 +146,7 @@ The following table lists the configurable parameters of the cert-manager chart 
 | `config` | ControllerConfiguration YAML used to configure flags for the controller. Generates a ConfigMap containing contents of the field. See `values.yaml` for example. | `{}` |
 | `enableServiceLinks` | Indicates whether information about services should be injected into pod's environment variables, matching the syntax of Docker links. | `false` |
 | `webhook.replicaCount` | Number of cert-manager webhook replicas | `1` |
+| `webhook.revisionHistoryLimit` | Number of old `ReplicaSets` to retain to allow rollback of the `Deployment` |  |
 | `webhook.timeoutSeconds` | Seconds the API server should wait for the webhook to respond before treating the call as a failure. Value must be between 1 and 30 seconds. | `30` |
 | `webhook.podAnnotations` | Annotations to add to the webhook pods | `{}` |
 | `webhook.podLabels` | Labels to add to the cert-manager webhook pod | `{}` |
@@ -193,6 +195,7 @@ The following table lists the configurable parameters of the cert-manager chart 
 | `webhook.enableServiceLinks` | Indicates whether information about services should be injected into pod's environment variables, matching the syntax of Docker links. | `false` |
 | `cainjector.enabled` | Toggles whether the cainjector component should be installed (required for the webhook component to work) | `true` |
 | `cainjector.replicaCount` | Number of cert-manager cainjector replicas | `1` |
+| `cainjector.revisionHistoryLimit` | Number of old `ReplicaSets` to retain to allow rollback of the `Deployment` |  |
 | `cainjector.podAnnotations` | Annotations to add to the cainjector pods | `{}` |
 | `cainjector.podLabels` | Labels to add to the cert-manager cainjector pod | `{}` |
 | `cainjector.deploymentAnnotations` | Annotations to add to the cainjector deployment | `{}` |
